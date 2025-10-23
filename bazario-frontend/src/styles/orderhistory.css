@@ -1,62 +1,68 @@
+/* === Full Screen Order History === */
 .order-history-container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0b001a 0%, #1a0033 100%);
+  color: #f3f4f6;
+  box-sizing: border-box;
 }
 
+/* Header */
 .order-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 2px solid #a855f7;
 }
 
 .order-header h2 {
   font-size: 2rem;
-  color: #1f2937;
+  color: #f3f4f6;
   font-weight: 700;
 }
 
 .order-header button {
   padding: 12px 24px;
-  background: #3b82f6;
-  color: white;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 10px #a855f7, 0 0 20px #ec4899;
 }
 
 .order-header button:hover {
-  background: #2563eb;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 15px #a855f7, 0 0 25px #ec4899;
 }
 
 /* Empty State */
 .empty-state {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1a0033, #0b001a);
   border-radius: 16px;
-  margin-top: 40px;
+  margin-top: 60px;
+  color: #f3f4f6;
 }
 
 .empty-state p {
-  font-size: 1.3rem;
-  color: #6b7280;
+  font-size: 1.4rem;
+  color: #d1d5db;
   margin-bottom: 30px;
 }
 
 .empty-state button {
   padding: 14px 32px;
-  background: #059669;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
   color: white;
   border: none;
   border-radius: 8px;
@@ -64,11 +70,12 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 0 10px #a855f7, 0 0 20px #ec4899;
 }
 
 .empty-state button:hover {
-  background: #047857;
   transform: scale(1.05);
+  box-shadow: 0 0 15px #a855f7, 0 0 25px #ec4899;
 }
 
 /* Orders List */
@@ -76,19 +83,22 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
 }
 
+/* Order Card */
 .order-card {
-  background: white;
+  background: rgba(26, 0, 51, 0.9);
   border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
   transition: all 0.3s ease;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #a855f7;
+  width: 100%;
 }
 
 .order-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 20px #ec4899;
   transform: translateY(-2px);
 }
 
@@ -99,30 +109,31 @@
   align-items: center;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #a855f7;
 }
 
 .order-header-info h3 {
   font-size: 1.3rem;
-  color: #1f2937;
+  color: #f3f4f6;
   margin-bottom: 5px;
   font-weight: 600;
 }
 
 .order-date {
-  color: #6b7280;
+  color: #d1d5db;
   font-size: 0.9rem;
 }
 
 .order-status {
   padding: 8px 16px;
   border-radius: 20px;
-  color: white;
+  color: #fff;
   font-weight: 600;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px #a855f7, 0 0 10px #ec4899;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
 }
 
 /* Order Items */
@@ -138,13 +149,15 @@
   align-items: center;
   gap: 15px;
   padding: 15px;
-  background: #f9fafb;
+  background: rgba(11, 0, 26, 0.9);
   border-radius: 8px;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 5px #a855f7;
 }
 
 .order-item:hover {
-  background: #f3f4f6;
+  background: rgba(26, 0, 51, 0.95);
+  box-shadow: 0 0 15px #ec4899;
 }
 
 .order-item img {
@@ -152,7 +165,7 @@
   height: 80px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px #a855f7;
 }
 
 .item-info {
@@ -161,21 +174,21 @@
 
 .item-info h4 {
   font-size: 1.1rem;
-  color: #1f2937;
+  color: #f3f4f6;
   margin-bottom: 8px;
   font-weight: 600;
 }
 
 .item-info p {
   font-size: 0.9rem;
-  color: #6b7280;
+  color: #d1d5db;
   margin: 3px 0;
 }
 
 .item-subtotal {
   font-weight: 700;
   font-size: 1.1rem;
-  color: #059669;
+  color: #ec4899;
   margin-left: auto;
 }
 
@@ -186,22 +199,18 @@
   align-items: flex-start;
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 2px solid #e5e7eb;
-}
-
-.shipping-info {
-  flex: 1;
+  border-top: 2px solid #a855f7;
 }
 
 .shipping-info strong {
   display: block;
-  color: #374151;
+  color: #f3f4f6;
   margin-bottom: 8px;
   font-size: 0.95rem;
 }
 
 .shipping-info p {
-  color: #6b7280;
+  color: #d1d5db;
   font-size: 0.9rem;
   line-height: 1.5;
   max-width: 400px;
@@ -213,14 +222,14 @@
 
 .order-total h3 {
   font-size: 1.5rem;
-  color: #059669;
+  color: #ec4899;
   font-weight: 700;
 }
 
 /* Loading State */
 .order-history-container h2 {
   text-align: center;
-  color: #6b7280;
+  color: #d1d5db;
   font-size: 1.5rem;
   margin-top: 100px;
 }
@@ -228,7 +237,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .order-history-container {
-    padding: 15px;
+    padding: 20px;
   }
 
   .order-header {
@@ -266,6 +275,6 @@
     text-align: left;
     width: 100%;
     padding-top: 15px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid #a855f7;
   }
 }

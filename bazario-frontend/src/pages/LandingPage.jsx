@@ -5,8 +5,6 @@ export default function LandingPage() {
   return (
     <>
       <Navbar />
-
-      {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
           <h1>Shop Smarter with <span>Bazario</span></h1>
@@ -15,24 +13,23 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Featured Products */}
       <section id="products" className="featured">
         <h2>Featured Products</h2>
         <div className="product-grid">
           <div className="product-card">
-            <img src="/assets/product1.jpg" alt="Product 1" />
+            <img src="../assets/headset.jpeg" alt="Product 1" />
             <h3>Wireless Headphones</h3>
-            <p>$99</p>
+            <p>99 krones</p>
           </div>
           <div className="product-card">
-            <img src="/assets/product2.jpg" alt="Product 2" />
+            <img src="../assets/smartwatch.jpg" alt="Product 2" />
             <h3>Smart Watch</h3>
-            <p>$129</p>
+            <p>129 krones</p>
           </div>
           <div className="product-card">
-            <img src="/assets/product3.jpg" alt="Product 3" />
+            <img src="../assets/speaker.jpg" alt="Product 3" />
             <h3>Bluetooth Speaker</h3>
-            <p>$79</p>
+            <p>79 krones</p>
           </div>
         </div>
       </section>

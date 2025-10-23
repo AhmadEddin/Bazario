@@ -1,10 +1,11 @@
 .navbar {
   position: fixed;
   top: 0;
-  width: 70%;
+  width: 100%;
   height: 70px;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: rgba(20, 0, 40, 0.8); /* translucent dark purple */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(255, 0, 150, 0.2);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,12 +13,16 @@
   z-index: 1000;
 }
 
+/* LOGO */
 .nav-logo a {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #e6b800;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* LINKS */
 .nav-links {
   list-style: none;
   display: flex;
@@ -26,23 +31,33 @@
 
 .nav-links a {
   font-size: 1rem;
-  color: #333;
+  color: #ddd;
   transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: #e6b800;
+  color: #ff3cc7; /* neon pink hover */
 }
 
+/* BUTTONS */
 .nav-actions .nav-btn {
-  background-color: #e6b800;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
   color: white;
   padding: 8px 16px;
   margin-left: 10px;
   border-radius: 6px;
-  transition: 0.3s;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.5);
 }
 
 .nav-actions .nav-btn:hover {
-  background-color: #cda600;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.8);
+}
+
+/* Optional for smooth visual blend */
+body {
+  background: radial-gradient(circle at top left, #1a0033, #0b001a);
+  color: #f5f5f5;
 }

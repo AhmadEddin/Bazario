@@ -1,92 +1,536 @@
+/* ============================================
+   STUNNING LANDING PAGE CSS - BAZARIO
+   Ultra-premium, impactful design that stops scrolling
+   ============================================ */
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: #0a0a0a;
+}
+
+/* Hero Section - Ultra Impactful */
 .hero {
-  height: 90vh;
-  background: url("/assets/hero-bg.jpg") center/cover no-repeat;
+  height: 100vh;
+  background: radial-gradient(ellipse at top, #1a1a2e 0%, #0a0a0a 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
   text-align: center;
-  margin-top: 70px;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(138, 43, 226, 0.1) 25%,
+    rgba(255, 0, 255, 0.15) 50%,
+    rgba(138, 43, 226, 0.1) 75%,
+    transparent 100%
+  );
+  animation: shimmerWave 8s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmerWave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(33.33%); }
+}
+
+/* Particle effect background */
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, rgba(138, 43, 226, 0.4), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(255, 0, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 50% 50%, rgba(138, 43, 226, 0.2), transparent),
+    radial-gradient(2px 2px at 80% 10%, rgba(255, 0, 255, 0.25), transparent),
+    radial-gradient(2px 2px at 90% 60%, rgba(138, 43, 226, 0.3), transparent),
+    radial-gradient(2px 2px at 33% 80%, rgba(255, 0, 255, 0.2), transparent);
+  background-size: 200% 200%;
+  animation: floatParticles 20s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes floatParticles {
+  0%, 100% { 
+    background-position: 0% 0%, 100% 100%, 50% 50%, 80% 20%, 20% 80%, 70% 30%;
+  }
+  50% { 
+    background-position: 100% 100%, 0% 0%, 70% 70%, 30% 50%, 80% 20%, 40% 60%;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  padding: 0 40px;
+  animation: heroEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes heroEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 7rem;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -4px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fff 0%, #8a2be2 50%, #ff00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShine 4s ease-in-out infinite;
+  text-shadow: 0 0 80px rgba(138, 43, 226, 0.5);
+}
+
+@keyframes textShine {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .hero-content h1 span {
-  color: #e6b800;
+  display: block;
+  background: linear-gradient(135deg, #ff00ff 0%, #8a2be2 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShine 4s ease-in-out infinite reverse;
+  text-shadow: 0 0 100px rgba(255, 0, 255, 0.6);
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+  opacity: 0.85;
+  font-weight: 300;
+  letter-spacing: 1px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
 }
 
 .hero-content button {
-  background-color: #e6b800;
+  background: linear-gradient(135deg, #8a2be2 0%, #ff00ff 100%);
+  color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 22px 60px;
+  border-radius: 60px;
+  font-size: 1.2rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 
+    0 0 60px rgba(138, 43, 226, 0.6),
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 -2px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.hero-content button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.hero-content button:hover::before {
+  left: 100%;
 }
 
 .hero-content button:hover {
-  background-color: #cda600;
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 
+    0 0 100px rgba(255, 0, 255, 0.8),
+    0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
+.hero-content button:active {
+  transform: translateY(-2px) scale(1.02);
+}
 
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator::after {
+  content: '↓';
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 2rem;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* Featured Products - Next Level Cards */
 .featured {
-  padding: 80px 5%;
-  text-align: center;
-  background: #f9f9f9;
+  padding: 150px 5%;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  position: relative;
+}
+
+.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.5), transparent);
 }
 
 .featured h2 {
-  font-size: 2rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
+  font-weight: 900;
+  text-align: center;
+  background: linear-gradient(135deg, #fff 0%, #8a2be2 50%, #ff00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.featured > p {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  margin-bottom: 80px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .product-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(138, 43, 226, 0.2);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(138, 43, 226, 0.2),
+    transparent
+  );
+  transition: left 0.7s;
+  z-index: 1;
+}
+
+.product-card:hover::before {
+  left: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(138, 43, 226, 0.4),
+    0 0 0 2px rgba(255, 0, 255, 0.4),
+    0 0 80px rgba(138, 43, 226, 0.3);
 }
 
 .product-card img {
   width: 100%;
-  border-radius: 8px;
+  height: 320px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+  filter: brightness(0.9);
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.product-card-content {
+  padding: 30px;
+  position: relative;
+  z-index: 2;
 }
 
 .product-card h3 {
-  margin: 10px 0 5px;
+  margin: 0 0 15px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  min-height: 65px;
 }
 
+.product-card p {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #8a2be2 0%, #ff00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 20px 0;
+}
+
+.product-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #ff00ff 0%, #8a2be2 100%);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.5);
+  z-index: 2;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #8a2be2 0%, #ff00ff 100%);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 15px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 0, 255, 0.6);
+}
+
+/* About Section - Immersive */
 .about {
-  padding: 80px 10%;
+  padding: 150px 10%;
   text-align: center;
-  background: white;
+  background: linear-gradient(135deg, #1a1a2e 0%, #8a2be2 50%, #1a1a2e 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 0, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.15) 0%, transparent 50%);
+  animation: rotateBackground 20s linear infinite;
+}
+
+@keyframes rotateBackground {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.about h2 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
 }
 
 .about p {
-  max-width: 700px;
+  max-width: 900px;
   margin: auto;
-  line-height: 1.6;
+  line-height: 1.9;
+  font-size: 1.3rem;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
 }
 
+/* Footer - Sleek */
 .footer {
   text-align: center;
-  padding: 20px;
-  background: #222;
-  color: white;
-  font-size: 0.9rem;
+  padding: 80px 20px;
+  background: #0a0a0a;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.footer p {
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 5rem;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+  
+  .hero-content button {
+    padding: 18px 45px;
+    font-size: 1rem;
+  }
+  
+  .featured {
+    padding: 100px 5%;
+  }
+  
+  .featured h2 {
+    font-size: 2.8rem;
+  }
+  
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .about {
+    padding: 100px 5%;
+  }
+  
+  .about h2 {
+    font-size: 2.8rem;
+  }
+  
+  .about p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .hero-content button {
+    width: 100%;
+    padding: 16px 35px;
+  }
+  
+  .featured h2,
+  .about h2 {
+    font-size: 2.2rem;
+  }
 }
