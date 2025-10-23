@@ -11,7 +11,9 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import "../styles/SellerAnalytics.css";
+import { Link } from "react-router-dom";
+import "../styles/Selleranalytics.css";
+;
 
 export default function SellerAnalytics() {
   const [analytics, setAnalytics] = useState(null);
@@ -55,7 +57,11 @@ export default function SellerAnalytics() {
 
   return (
     <div className="analytics-container">
-      <h2>📊 Sales Analytics</h2>
+      <h2> Sales Analytics</h2>
+
+      <Link to="/seller" className="dashboard-link">
+              Back to Dashboard
+           </Link>
 
       {/* Stats Cards */}
       <div className="stats-grid">
@@ -123,8 +129,6 @@ export default function SellerAnalytics() {
           <p className="no-data">No sales data yet</p>
         )}
       </div>
-
-      {/* Top Products Table */}
       <div className="table-section">
         <h3>Product Performance</h3>
         {analytics.topProducts.length > 0 ? (

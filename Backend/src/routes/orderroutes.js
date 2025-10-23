@@ -9,14 +9,10 @@ import {
 import authMiddleware from "../middleware/authmiddleware.js";
 
 const router = express.Router();
-
-// Buyer routes (keeping same paths)
-router.post("/place", authMiddleware, createOrder);           // Place order (checkout)
-router.get("/my", authMiddleware, getBuyerOrders);            // Order history
-router.get("/:id", authMiddleware, getOrderById);             // Single order details
-
-// Seller routes
-router.get("/seller", authMiddleware, getSellerOrders);       // Seller's orders
-router.get("/seller/analytics", authMiddleware, getSellerAnalytics); // Analytics data
+router.post("/place", authMiddleware, createOrder);           
+router.get("/my", authMiddleware, getBuyerOrders);            
+router.get("/:id", authMiddleware, getOrderById);             
+router.get("/seller", authMiddleware, getSellerOrders);    
+router.get("/seller/analytics", authMiddleware, getSellerAnalytics); 
 
 export default router;

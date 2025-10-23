@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/SellerDashboard.css";
 
 export default function SellerDashboard() {
@@ -13,6 +14,7 @@ export default function SellerDashboard() {
 
   const token = localStorage.getItem("token");
   const backend = "http://localhost:5000";
+  
   const fetchProducts = async () => {
     try {
       const res = await fetch(`${backend}/products`, {
@@ -48,7 +50,7 @@ export default function SellerDashboard() {
       if (!res.ok) throw new Error(data.message || "Failed");
       setMessage("Product added successfully!");
       setProduct({ title: "", price: "", description: "", imageFile: null });
-      fetchProducts(); 
+      fetchProducts();
     } catch (err) {
       console.error(err);
       setMessage(err.message);
@@ -57,7 +59,12 @@ export default function SellerDashboard() {
 
   return (
     <div className="seller-dashboard">
-      <h2>Seller Dashboard</h2>
+      <div className="dashboard-header">
+        <h2>Seller Dashboard</h2>
+        <Link to="/seller/analytics" className="analytics-link">
+          View Analytics
+        </Link>
+      </div>
 
       <form className="product-form" onSubmit={handleAddProduct}>
         <h3>Add New Product</h3>
